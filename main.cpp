@@ -75,7 +75,7 @@ int main(int argv, char** args) {
         //current movement functions.
         cube.clockAroundY(deltaTime, 6);
         cube.clockAroundX(deltaTime, 3);
-//        cube.clockAroundZ(deltaTime);
+//        cube.clockAroundZ(deltaTime, 3);
 
 
         //render calculations begin.
@@ -84,7 +84,6 @@ int main(int argv, char** args) {
 
         twoDMathManager.sortMagnitudes();
 
-//        std::vector<int> drawableCorners = twoDMathManager.findDrawableCorners();
         std::vector<int> drawableCorners = twoDMathManager.findDrawableCorners();
 
         SDL_RenderClear(rend);

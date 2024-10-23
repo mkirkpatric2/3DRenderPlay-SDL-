@@ -20,17 +20,6 @@ void LineManager::renderLines(SDL_Renderer *rend, std::vector<int> drawList, Two
     }
 
 
-
-    //draw lines. Screen is 700x700, origin is the top left corner. Centering cube w/ +350
-//    SDL_SetRenderDrawColor(rend, 255, 0, 0, 255);
-//    for(auto& it : lines){
-//        SDL_RenderDrawLine(rend, d2->frameCoords[it.p1].x+350, d2->frameCoords[it.p1].y+350,
-//                           d2->frameCoords[it.p2].x+350, d2->frameCoords[it.p2].y+350);
-//    }
-//    SDL_SetRenderDrawColor(rend, 0, 0, 0, 255);
-//    SDL_RenderPresent(rend);
-
-    //shift centering to projection
     SDL_SetRenderDrawColor(rend, 255, 0, 0, 255);
     for(auto& it : lines){
         SDL_RenderDrawLine(rend, d2->frameCoords[it.p1].x, d2->frameCoords[it.p1].y,

@@ -135,8 +135,7 @@ std::vector<int> TwoDMathManager::findDrawableCorners() {
         if(c7!=0) addCorners.push_back(c7);
         if(c8!=0) addCorners.push_back(c8);
 
-        //TEST --- logging coordinates when furthest 4 are all outside the closest 4.
-
+        //LOG - logging coordinates when furthest 4 are all outside the closest 4
         if(addCorners.size()==4){
             for(int x = 0; x<8; x++){
                 SDL_Log("C%d -- xy: (%d,%d)\nCube x:%f - y:%f -- magnitude: %f -"
@@ -144,7 +143,7 @@ std::vector<int> TwoDMathManager::findDrawableCorners() {
                 cube->corners[x].x, cube->corners[x].y, magnitudes[x].magnitude, static_cast<int>((cube->corners[x].x)*(1/(.0066*magnitudes[x].magnitude))));
             }
         }
-        //END TEST
+        //END
 
 
         for (auto& it : addCorners){
@@ -154,7 +153,7 @@ std::vector<int> TwoDMathManager::findDrawableCorners() {
         return drawableCorners;
 
     } else {
-        //Projected 4 take a cross shape..
+        //Projected 4 take a cross shape...
 //        *     |
 //        *     *
 //        *    / \
@@ -181,7 +180,7 @@ std::vector<int> TwoDMathManager::findDrawableCorners() {
         c8 = magnitudes[7].cornerNo;
 
 
-        //thus I just check each against the big (or until I hit a false, prob gonna do em all atm for ease of copy/paste rn)
+        //thus I just check each against the big (or until I hit a false, prob gonna do em all atm)
         if(!isWithinTriangle(frameCoords[tri1.a], frameCoords[tri1.b], frameCoords[tri1.c], frameCoords[c5]))
             drawableCorners.push_back(c5);
         if(!isWithinTriangle(frameCoords[tri1.a], frameCoords[tri1.b], frameCoords[tri1.c], frameCoords[c6]))

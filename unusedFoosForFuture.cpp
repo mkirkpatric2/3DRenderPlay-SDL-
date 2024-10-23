@@ -1,6 +1,4 @@
-//
-// Created by M on 10/11/2024.
-//
+
 //THESE FUNCTIONS ARE NOT INCLUDED IN THE CMAKEFILE
 
 
@@ -54,8 +52,8 @@
  * Below is a code section I wrote while walking through the possibilities the first time. I needed to see the options.
  * I'm keeping it for reference for potential additional shapes. In essence, I was stacking triangles
  * for each "drawable corner" and checking future corners against them.
- * Cubes and rect prisms give the easy option exercised in the main program atm.
- * Oddly-shaped solids may introduce the need for some functionality or similar thought processes below
+ * Cubes and rect prisms give the easy option exercised in the main program atm when centered.
+
  */
 
 //
@@ -158,60 +156,3 @@
 //                }
 //            }
 //        }
-
-
-
-
-/* Intent:
- * Calculate the magnitudes of the 2 vectors between the non-adjacent of the 4 points
- * closest to the screen on the z axis [smallest 4 in magnitudes vector]
- * as projected onto the frame.
- *
- * Grab the 5th closest in (magnitudes). calc the distance b/w it and the 4 on the screen.
- * If any value is greater than the 2 magnitudes calculated in the last step, add to renderlist.
- *
- * If not, figure out how to check if its in that space around the shape
- * where the mag is less than the cross section but still out of bounds. If so, add.
- *
- * Otherwise move to the next closest.
- *
- * If you add a new cornerNo.... scrap this.
- *
- * Intent #2:
- * 1st check.
- * calc lines b/w adjacent first 4 corners. y=((y2-y1)/(x2-x1))x+b
- * 2 states
- * a) perfectly level. Lines are x=k, y=k
- * -- here, if x > higher of x=k or x < lower of x=k, draw and add. Same for y.
- *
- *
- * b) not level. Benefit of it just being a cube, know this won't work for other shapes.
- * --each cornerNo will either be the furthest up, right, left, down.
- * scrap that.
- **
-     * Intent 3. Inefficent? But should guarantee?
-     * Any point P within a triangle ABC results in
-     * areaABC = aPAB+aPAC+aPBC
-     *
-     * Divvy the first square into 2 triangles. Grab magnitude between adjacents on frame.
-     * Grab magnitude of one cross section of first 4 on frame quadrilateral.
-     * calculate areas of the 2 triangles.
-     *
-     * Place next closest point. Determine magnitude between it and all other points.
-     * if a or b, within scope and its not to be rendered.
-     * a = (areaABC1 == aPAB1+aPAC1+aPBC1)
-     * b = (areaABC2 = aPAB2+aPAC2+aPBC2)
-     * else add to renderable.
-     *
-     * Calc magnitude between point and 2 closest points w/ respect to frame.
-     * repeat but checking for c = (areaABC3 = aPAB3+aPAC3+aPBC3)
-     *
-     * Loop through entire vector.
-     *
-     * At each step, record drawables.
-     *
-     * Slight deviation if first 4 projected are in this shape
-
-     *
-     *
- */
